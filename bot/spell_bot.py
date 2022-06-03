@@ -104,8 +104,10 @@ def create_transformer(SRC, TRG):
     model = Transformer(enc, dec, SRC_PAD_IDX, TRG_PAD_IDX, device).to(device)
     return model
 
+TOKEN = ""
+
 # Создаем экземпляр бота
-bot = telebot.TeleBot('1867864497:AAEPjEOmatknyq6n-pbYLI73E-cQwMTPAjI')
+bot = telebot.TeleBot(TOKEN)
 
 tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased")
 SRC = Field(tokenize=tokenizer.tokenize,
